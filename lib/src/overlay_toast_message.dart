@@ -10,6 +10,10 @@ class OverlayToastMessage extends StatefulWidget {
   final Duration duration;
   final Duration animDuration;
   final String? textMessage;
+  final Decoration? decoration;
+  final Color? backgroundColor;
+  final BorderRadiusGeometry? borderRadius;
+  final TextStyle? textStyle;
 
   OverlayToastMessage.show(
     BuildContext context, {
@@ -19,6 +23,10 @@ class OverlayToastMessage extends StatefulWidget {
     this.duration = const Duration(seconds: 3),
     this.animDuration = const Duration(milliseconds: 100),
     bool dismissAll = false,
+    this.decoration,
+    this.backgroundColor,
+    this.borderRadius,
+    this.textStyle,
   }) {
     assert(widget != null || textMessage != null);
     assert(duration > animDuration);
@@ -67,29 +75,30 @@ class _ToastWidgetState extends State<OverlayToastMessage> {
           child: SizedBox(
             width: double.infinity,
             child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: Colors.black38,
-                boxShadow: const [
-                  BoxShadow(
-                    spreadRadius: 3,
-                    blurRadius: 10,
-                    offset: Offset(0, 5),
-                    color: Colors.black12,
-                  )
-                ],
-                borderRadius: BorderRadius.circular(8),
-              ),
+              decoration: widget.decoration ??
+                  BoxDecoration(
+                    color: widget.backgroundColor ?? Colors.black38,
+                    boxShadow: const [
+                      BoxShadow(
+                        spreadRadius: 3,
+                        blurRadius: 10,
+                        offset: Offset(0, 5),
+                        color: Colors.black12,
+                      )
+                    ],
+                    borderRadius: widget.borderRadius ?? BorderRadius.circular(8),
+                  ),
               child: Padding(
                 padding: const EdgeInsets.all(15),
                 child: Text(
                   widget.textMessage!,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 26,
-                    fontWeight: FontWeight.w700,
-                  ),
+                  style: widget.textStyle ??
+                      const TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
                   textAlign: TextAlign.center,
-                  maxLines: 2,
                 ),
               ),
             ),

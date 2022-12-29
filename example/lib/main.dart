@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
     OverlayToastMessage.show(
       context,
       dismissAll: true,
-      textMessage: 'Dismiss All And Show Toast',
+      textMessage: 'Dismiss All And Show Toast Message',
     );
   }
 

@@ -1,6 +1,6 @@
 name: overlay_toast_message
 description: A flutter widget of overlay Toast Message.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/Mto292/overlay_toast_message.git
 
 environment:

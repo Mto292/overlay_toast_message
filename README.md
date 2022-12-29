@@ -11,7 +11,7 @@ add this line to pubspec.yaml
 ```yaml
 
    dependencies:
-     overlay_toast_message: ^1.0.0
+     overlay_toast_message: ^1.0.1
 
 ```
 
